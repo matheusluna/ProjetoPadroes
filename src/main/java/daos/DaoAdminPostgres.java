@@ -6,7 +6,14 @@
 package daos;
 
 import entidades.Admin;
+import fabricas.ConnectionFactory;
 import interfaces.DaoAdminInterface;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,7 +23,21 @@ public class DaoAdminPostgres implements DaoAdminInterface{
 
     @Override
     public Admin read(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Admin admin = null;
+        try {
+            Connection connection = new ConnectionFactory().getConnection();
+            String sql = "select * from admin where email = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                String senha = rs.getString("senha");
+                admin = new Admin(email, senha);
+            }
+            return admin;
+        } catch (ClassNotFoundException | SQLException ex) {
+            return admin;
+        }
     }
     
 }
