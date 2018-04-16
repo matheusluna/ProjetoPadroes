@@ -6,7 +6,12 @@
 package fabricas;
 
 import daos.DaoAdminPostgres;
+import daos.DaoAtendentePostgres;
+import daos.DaoAtendenteServicoPostgres;
+import daos.DaoAtendimentoPostgres;
 import daos.DaoClientePostgres;
+import daos.DaoHorarioPostgres;
+import daos.DaoServicoPostgres;
 import interfaces.DaoAdminInterface;
 import interfaces.DaoAtendenteInterface;
 import interfaces.DaoAtendenteServicoInterface;
@@ -34,27 +39,27 @@ public class DaoFabricaBDPostgres implements DaoFabricaBanco{
 
     @Override
     public DaoAtendenteInterface criarAtendenteDao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DaoAtendentePostgres();
     }
 
     @Override
     public DaoAtendenteServicoInterface criarAtendenteServicoDao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DaoAtendenteServicoPostgres();
     }
 
     @Override
     public DaoAtendimentoInterface criarAtendimentoDao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DaoAtendimentoPostgres();
     }
 
     @Override
     public DaoHorarioInterface criarHorarioDao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DaoHorarioPostgres();
     }
 
     @Override
     public DaoServicoInterface criarServicoDao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DaoServicoPostgres();
     }
     
 }

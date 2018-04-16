@@ -7,6 +7,7 @@ package daos;
 
 import entidades.Atendimento;
 import fabricas.ConnectionFactory;
+import interfaces.DaoAtendenteInterface;
 import interfaces.DaoAtendimentoInterface;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,6 +32,7 @@ public class DaoAtendimentoPostgres implements DaoAtendimentoInterface{
 
     @Override
     public Atendimento read(String cliente, String atendente, LocalDate dia, LocalDateTime hora) {
+        DaoAtendenteInterface = 
         Atendimento atendimento = null;
         try {
             Connection connection = new ConnectionFactory().getConnection();
@@ -41,6 +43,9 @@ public class DaoAtendimentoPostgres implements DaoAtendimentoInterface{
             stmt.setDate(3, date);
             stmt.setTime(4, time);
             ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                
+            }
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DaoAtendimentoPostgres.class.getName()).log(Level.SEVERE, null, ex);
         }
