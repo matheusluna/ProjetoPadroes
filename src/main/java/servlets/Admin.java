@@ -40,7 +40,7 @@ public class Admin extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("UTF-8");
         String caminho = request.getParameter("caminho");
-        
+        System.out.println(caminho);
         try {
             Comando com = (Comando) Class.forName("controllers."+caminho+"Controller").newInstance();
             com.execute(request, response);
@@ -65,7 +65,17 @@ public class Admin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("loginAdmin.jsp").forward(request, response);
+        String caminho = request.getParameter("caminho");
+        if(caminho != null){
+            try {
+                processRequest(request, response);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            request.getRequestDispatcher("loginAdmin.jsp").forward(request, response);
+        }
+        
     }
 
     /**

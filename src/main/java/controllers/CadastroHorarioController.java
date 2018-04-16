@@ -31,10 +31,10 @@ public class CadastroHorarioController implements Comando{
         DaoFabricaBDPostgres daoFabricaBDPostgres = new DaoFabricaBDPostgres();
         DaoHorarioInterface daoHorario = daoFabricaBDPostgres.criarHorarioDao();
         DaoAtendenteInterface daoAtendente = daoFabricaBDPostgres.criarAtendenteDao();
-        Atendente atendente = daoAtendente.read(request.getParameter("email"));
-        String horaInicio = request.getParameter("horainicio");
-        String horaFim = request.getParameter("horafim");
-        String dia = request.getParameter("diasemena");
+        Atendente atendente = daoAtendente.read(request.getParameter("atendente"));
+        String horaInicio = request.getParameter("inicio");
+        String horaFim = request.getParameter("fim");
+        String dia = request.getParameter("diasemana");
         
         LocalTime inicio = LocalTime.parse(horaInicio);
         LocalTime fim = LocalTime.parse(horaFim);

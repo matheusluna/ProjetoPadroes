@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : principalAdmin
     Created on : 16/04/2018, 03:12:26
     Author     : mathe
@@ -16,7 +16,9 @@
         <a href="cadastroFuncionario.jsp">cadastrar funcionario</a>
         <a href="cadastroHorario.jsp">cadastrar horario</a>
         <a href="cadastroServico.jsp">cadastrar serviço</a>
-        <a href="cadastroAtendimento.jsp">cadastrar atendimento</a>
-        <a href="cadastroAtendenteServico.jsp">cadastrar serviço ao atendente</a>
+        <a href="escolhaAtendimento.jsp">cadastrar atendimento</a>
+        <a href="Admin?caminho=Servico">Ligar serviço à atendente</a>
+
+       
     </body>
 </html>

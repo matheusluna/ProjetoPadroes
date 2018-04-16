@@ -111,7 +111,6 @@ public class Atendimento {
         }
         return true;
     }
-
     @Override
     public String toString() {
         return "Atendimento{" + "cliente=" + cliente + ", atendente=" + atendente + ", servico=" + servico + ", dia=" + dia + ", hora=" + hora + '}';

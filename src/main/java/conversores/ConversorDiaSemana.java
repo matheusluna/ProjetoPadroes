@@ -31,4 +31,25 @@ public class ConversorDiaSemana {
         }
         return DiaSemana.DOMINGO;
     }
+    
+    public DiaSemana valueOf(int diaSemanaInt){
+        switch(diaSemanaInt){
+            case 1:
+                return DiaSemana.DOMINGO;
+            case 2:
+                return DiaSemana.SEGUNDA;
+            case 3:
+                return DiaSemana.TERÇA;
+            case 4:
+                return DiaSemana.QUARTA;
+            case 5:
+                return DiaSemana.QUINTA;
+            case 6:
+                return DiaSemana.SEXTA;
+            case 7:
+                return DiaSemana.SÁBADO;
+            
+        }
+        return DiaSemana.DOMINGO;
+    }
 }

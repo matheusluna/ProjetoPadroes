@@ -1,6 +1,6 @@
-<%-- 
+<%--
     Document   : escolhaAtendimento
-    Created on : 16/04/2018, 05:46:41
+    Created on : 16/04/2018, 14:10:09
     Author     : mathe
 --%>
 
@@ -14,8 +14,8 @@
     <body>
         <h1>Hello World!</h1>
         <ul>
-            <li><a href="Frontal?caminho=Atendentes">Atendentes</a></li>
-            <li><a href="Frontal?caminho=Sevicos">Serviços</a></li>
+          <li><a href="Admin?caminho=Atendentes">Atendente</a></li>
+          <li><a href="Admin?caminho=Servicos">Serviço</a></li>
         </ul>
     </body>
 </html>

@@ -30,6 +30,8 @@ public class DaoAtendenteServicoPostgres implements DaoAtendenteServicoInterface
 
     @Override
     public boolean create(AtendenteServico atendenteServico) {
+        System.out.println(atendenteServico.getAtendente().getEmail());
+        System.out.println(atendenteServico.getServico().getId());
         AtendenteServico as = read(atendenteServico.getAtendente().getEmail(), atendenteServico.getServico().getId());
         if(as == null){
             try {
@@ -119,6 +121,7 @@ public class DaoAtendenteServicoPostgres implements DaoAtendenteServicoInterface
             Connection connection = new ConnectionFactory().getConnection();
             String sql = "select servico from atendenteservico where atendente = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, atendente);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
                 Servico servico = daoServico.read(rs.getInt("servico"), "");

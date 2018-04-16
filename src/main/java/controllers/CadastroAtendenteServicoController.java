@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mathe
  */
-public class CadastroAtendenteServico implements Comando{
+public class CadastroAtendenteServicoController implements Comando{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, IOException, ServletException {
@@ -32,8 +32,8 @@ public class CadastroAtendenteServico implements Comando{
         DaoServicoInterface daoServico = daoFabricaBDPostgres.criarServicoDao();
         DaoAtendenteServicoInterface daoAtendenteServico = daoFabricaBDPostgres.criarAtendenteServicoDao();
         
-        Atendente atendente = daoAtendente.read(request.getParameter("email"));
-        Servico servico = daoServico.read(Integer.parseInt(request.getParameter("servico")), "");
+        Atendente atendente = daoAtendente.read(request.getParameter("atendente"));
+        Servico servico = daoServico.read(Integer.parseInt(request.getParameter("servicoa")), "");
         int tempo = Integer.valueOf(request.getParameter("tempo"));
         
         AtendenteServico atendenteServico = new AtendenteServico(atendente, servico, tempo);
