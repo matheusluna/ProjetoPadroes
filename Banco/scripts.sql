@@ -3,14 +3,14 @@
 	sobrenome text not null,
 	email text primary key,
 	senha text not null
-)
+);
 
 create table admin(
 	email text primary key,
 	senha text not null
-)
+);
 
-insert into admin values('admin@gmail.com', '123456')
+insert into admin values('admin@gmail.com', '123456');
 
 create table atendente(
 	nome text not null,
@@ -22,6 +22,7 @@ create table atendente(
 create table servico(
 	id serial unique,
 	nome text,
+	preco double precision,
 	primary key(id)
 );
 
@@ -53,6 +54,3 @@ create table atendimento(
 	foreign key (cliente) references cliente(email),
 	foreign key (atendente) references atendente(email)
 )
-
-
-delete from servico where id = 1

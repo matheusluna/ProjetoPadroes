@@ -67,7 +67,7 @@ public class DaoAtendenteServicoPostgres implements DaoAtendenteServicoInterface
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {                
                 Atendente a = daoAtendente.read(atendente);
-                Servico s = daoServico.read(servico);
+                Servico s = daoServico.read(servico, "");
                 int tempo = rs.getInt("tempo");
                 atendenteServico = new AtendenteServico(a, s, tempo);
             }
@@ -121,7 +121,7 @@ public class DaoAtendenteServicoPostgres implements DaoAtendenteServicoInterface
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
-                Servico servico = daoServico.read(rs.getInt("servico"));
+                Servico servico = daoServico.read(rs.getInt("servico"), "");
                 servicos.add(servico);
             }
             stmt.close();

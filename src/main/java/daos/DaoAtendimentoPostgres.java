@@ -80,7 +80,7 @@ public class DaoAtendimentoPostgres implements DaoAtendimentoInterface{
             while(rs.next()){
                 Cliente c = daoCliente.read(cliente);
                 Atendente a = daoAtendente.read(atendente);
-                Servico s = daoServico.read(rs.getInt("id"));
+                Servico s = daoServico.read(rs.getInt("id"), "");
                 atendimento = new Atendimento(c, a, s, dia, hora);                
             }
             stmt.close();
@@ -139,7 +139,7 @@ public class DaoAtendimentoPostgres implements DaoAtendimentoInterface{
             while(rs.next()){
                 Cliente c = daoCliente.read(rs.getString("cliente"));
                 Atendente a = daoAtendente.read(atendente);
-                Servico s = daoServico.read(rs.getInt("id"));
+                Servico s = daoServico.read(rs.getInt("id"), "");
                 LocalDate dia = rs.getDate("dia").toLocalDate();
                 LocalTime hora = rs.getTime("inicio").toLocalTime();
                 Atendimento atendimento = new Atendimento(c, a, s, dia, hora);
@@ -172,7 +172,7 @@ public class DaoAtendimentoPostgres implements DaoAtendimentoInterface{
             while(rs.next()){
                 Cliente c = daoCliente.read(rs.getString("cliente"));
                 Atendente a = daoAtendente.read(rs.getString("atendente"));
-                Servico s = daoServico.read(rs.getInt("id"));
+                Servico s = daoServico.read(rs.getInt("id"), "");
                 LocalTime hora = rs.getTime("inicio").toLocalTime();
                 Atendimento atendimento = new Atendimento(c, a, s, dia, hora);
                 atendimentos.add(atendimento);
