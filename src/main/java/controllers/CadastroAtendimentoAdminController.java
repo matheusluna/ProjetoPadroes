@@ -51,6 +51,9 @@ public class CadastroAtendimentoAdminController implements Comando{
         if(daoAtendimento.create(atendimento)){
             session.invalidate();
             request.getRequestDispatcher("principalAdmin.jsp").forward(request, response);
+        }else{
+            request.setAttribute("mensagem", "<script>alert('Não foi possível cadastrar o atendimento, horário ocupado.')</script>");
+            request.getRequestDispatcher("hora.jsp").forward(request, response);
         }
         
         
