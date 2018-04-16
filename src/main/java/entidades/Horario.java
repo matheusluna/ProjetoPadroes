@@ -6,7 +6,7 @@
 package entidades;
 
 import enums.DiaSemana;
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 /**
@@ -15,14 +15,14 @@ import java.util.Objects;
  */
 public class Horario {
     private Atendente atendente;
-    private LocalDate inicio;
-    private LocalDate fim;
+    private LocalTime inicio;
+    private LocalTime fim;
     private DiaSemana diaSemana;
 
     public Horario() {
     }
 
-    public Horario(Atendente atendente, LocalDate inicio, LocalDate fim, DiaSemana diaSemana) {
+    public Horario(Atendente atendente, LocalTime inicio, LocalTime fim, DiaSemana diaSemana) {
         this.atendente = atendente;
         this.inicio = inicio;
         this.fim = fim;
@@ -37,19 +37,19 @@ public class Horario {
         this.atendente = atendente;
     }
 
-    public LocalDate getInicio() {
+    public LocalTime getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDate inicio) {
+    public void setInicio(LocalTime inicio) {
         this.inicio = inicio;
     }
 
-    public LocalDate getFim() {
+    public LocalTime getFim() {
         return fim;
     }
 
-    public void setFim(LocalDate fim) {
+    public void setFim(LocalTime fim) {
         this.fim = fim;
     }
 

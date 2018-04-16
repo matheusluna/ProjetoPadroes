@@ -7,8 +7,7 @@ package interfaces;
 
 import entidades.Horario;
 import enums.DiaSemana;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -17,7 +16,7 @@ import java.util.List;
  */
 public interface DaoHorarioInterface {
     public boolean create(Horario horario);
-    public Horario read(String atendente, LocalDate dia, LocalDateTime inicio, DiaSemana diasemana);
+    public Horario read(String atendente, LocalTime inicio, DiaSemana diasemana);
     public boolean update(Horario horario);
     public boolean delete(Horario horario);
     public List<Horario> list(String atendente);

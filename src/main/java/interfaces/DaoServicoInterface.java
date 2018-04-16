@@ -6,6 +6,7 @@
 package interfaces;
 
 import entidades.Servico;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface DaoServicoInterface {
     public Servico read(int id);
     public boolean update(Servico servico);
     public boolean delete(Servico servico);
+    public List<Servico> list();
 }

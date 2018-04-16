@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package enums;
+package app;
+
+import enums.DiaSemana;
 
 /**
  *
  * @author mathe
  */
-public enum DiaSemana {
-    SEGUNDA,
-    TERÇA,
-    QUARTA,
-    QUINTA,
-    SEXTA,
-    SÁBADO,
-    DOMINGO
+public class App {
+    public static void main(String[] args) {
+        System.out.println(DiaSemana.DOMINGO.toString());
+    }
 }

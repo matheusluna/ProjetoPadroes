@@ -7,6 +7,7 @@ package daos;
 
 import entidades.Servico;
 import interfaces.DaoServicoInterface;
+import java.util.List;
 
 /**
  *
@@ -31,6 +32,11 @@ public class DaoServicoPostgres implements DaoServicoInterface{
 
     @Override
     public boolean delete(Servico servico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Servico> list() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
