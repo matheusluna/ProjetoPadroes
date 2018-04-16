@@ -7,7 +7,7 @@ package interfaces;
 
 import entidades.Atendimento;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface DaoAtendimentoInterface {
     public boolean create(Atendimento atendimento);
-    public Atendimento read(String cliente, String atendente, LocalDate dia, LocalDateTime hora);
+    public Atendimento read(String cliente, String atendente, LocalDate dia, LocalTime hora);
     public boolean update(Atendimento atendimento);
     public boolean delete(Atendimento atendimento);
     public List<Atendimento> listAtendimentos(String atendente);

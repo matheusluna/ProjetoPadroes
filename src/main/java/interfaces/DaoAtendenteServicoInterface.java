@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface DaoAtendenteServicoInterface {
     public boolean create(AtendenteServico atendenteServico);
-    public AtendenteServico read(String atendente, String servico);
+    public AtendenteServico read(String atendente,int servico);
     public boolean update(AtendenteServico atendenteServico);
     public boolean delete(AtendenteServico atendenteServico);
     public List<Servico> listServicos(String atendente);

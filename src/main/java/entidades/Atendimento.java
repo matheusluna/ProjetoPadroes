@@ -6,7 +6,7 @@
 package entidades;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Objects;
 
 /**
@@ -18,12 +18,12 @@ public class Atendimento {
     private Atendente atendente;
     private Servico servico;
     private LocalDate dia;
-    private LocalDateTime hora;
+    private LocalTime hora;
 
     public Atendimento() {
     }
 
-    public Atendimento(Cliente cliente, Atendente atendente, Servico servico, LocalDate dia, LocalDateTime hora) {
+    public Atendimento(Cliente cliente, Atendente atendente, Servico servico, LocalDate dia, LocalTime hora) {
         this.cliente = cliente;
         this.atendente = atendente;
         this.servico = servico;
@@ -63,11 +63,11 @@ public class Atendimento {
         this.dia = dia;
     }
 
-    public LocalDateTime getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDateTime hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 

@@ -28,7 +28,7 @@ create table servico(
 create table atendenteservico(
 	atendente text,
 	servico int,
-	tempo time,
+	tempo int,
 	primary key(atendente, servico),
 	foreign	key (atendente) references atendente(email),
 	foreign key (servico) references servico(id)
@@ -55,3 +55,4 @@ create table atendimento(
 )
 
 
+delete from servico where id = 1
