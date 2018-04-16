@@ -13,5 +13,10 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="cadastroFuncionario.jsp">cadastrar funcionario</a>
+        <a href="cadastroHorario.jsp">cadastrar horario</a>
+        <a href="cadastroServico.jsp">cadastrar serviço</a>
+        <a href="cadastroAtendimento.jsp">cadastrar atendimento</a>
+        <a href="cadastroAtendenteServico.jsp">cadastrar serviço ao atendente</a>
     </body>
 </html>

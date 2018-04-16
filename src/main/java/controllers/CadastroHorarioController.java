@@ -5,49 +5,47 @@
  */
 package controllers;
 
+import conversores.ConversorDiaSemana;
 import entidades.Atendente;
+import entidades.Horario;
+import enums.DiaSemana;
 import fabricas.DaoFabricaBDPostgres;
 import interfaces.Comando;
 import interfaces.DaoAtendenteInterface;
-import java.io.File;
+import interfaces.DaoHorarioInterface;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 /**
  *
  * @author mathe
  */
-public class CadastroFuncionarioController implements Comando{
+public class CadastroHorarioController implements Comando{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, IOException, ServletException {
         DaoFabricaBDPostgres daoFabricaBDPostgres = new DaoFabricaBDPostgres();
+        DaoHorarioInterface daoHorario = daoFabricaBDPostgres.criarHorarioDao();
         DaoAtendenteInterface daoAtendente = daoFabricaBDPostgres.criarAtendenteDao();
+        Atendente atendente = daoAtendente.read(request.getParameter("email"));
+        String horaInicio = request.getParameter("horainicio");
+        String horaFim = request.getParameter("horafim");
+        String dia = request.getParameter("diasemena");
         
-        String nome = request.getParameter("nome");
-        String email = request.getParameter("email");
-        String senha = request.getParameter("senha");
-        //foto
-        String caminho = File.separator+email;
-        File caminhoUser = new File(caminho);
-        if(!caminhoUser.exists()) {
-                caminhoUser.mkdirs();
-        }
-        Part path = request.getPart("foto");
-        String cam = File.separator+path.getSubmittedFileName();
-        System.out.println(cam);
-        path.write(cam);
-        String foto = "img"+File.separator+email+File.separator+path.getSubmittedFileName();
+        LocalTime inicio = LocalTime.parse(horaInicio);
+        LocalTime fim = LocalTime.parse(horaFim);
+        DiaSemana diaSemana = new ConversorDiaSemana().valueOf(dia);
         
-        Atendente atendente = new Atendente(nome, email, senha, foto);
-        if(daoAtendente.create(atendente)){
+        Horario horario = new Horario(atendente, inicio, fim, diaSemana);
+        
+        if(daoHorario.create(horario)){
             request.getRequestDispatcher("principalAdmin.jsp").forward(request, response);
         }else{
-            request.getRequestDispatcher("cadastroFuncionario.jsp").forward(request, response);
+            request.getRequestDispatcher("cadastroHorario.jsp").forward(request, response);
         }
     }
     

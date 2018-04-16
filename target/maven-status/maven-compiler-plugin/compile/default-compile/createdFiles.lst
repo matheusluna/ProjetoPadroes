@@ -4,6 +4,7 @@ conversores\ConversorDiaSemana.class
 servlets\Frontal.class
 fabricas\DaoFabricaBDPostgres.class
 entidades\Atendimento.class
+controllers\CadastroFuncionarioController.class
 interfaces\DaoAtendimentoInterface.class
 daos\DaoServicoPostgres.class
 entidades\Horario.class
