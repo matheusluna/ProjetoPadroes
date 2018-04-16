@@ -6,6 +6,7 @@ conversores\ConversorDiaSemana.class
 servlets\Frontal.class
 controllers\CadastroAtendenteServicoController.class
 fabricas\DaoFabricaBDPostgres.class
+controllers\DiaClienteController.class
 controllers\CadastroServicoController.class
 entidades\Atendimento.class
 controllers\CadastroFuncionarioController.class
@@ -24,12 +25,15 @@ interfaces\DaoServicoInterface.class
 interfaces\DaoAdminInterface.class
 daos\DaoHorarioPostgres.class
 servlets\Admin.class
+controllers\ServicoAtendenteClienteController.class
 entidades\Atendente.class
 controllers\CadastroHorarioController.class
 controllers\CadastroAtendimentoAdminController.class
+controllers\HoraClienteController.class
 controllers\LoginAdminController.class
 daos\DaoAtendenteServicoPostgres.class
 interfaces\DaoClienteInterface.class
+controllers\CadastroAtendimentoClienteController.class
 daos\DaoAdminPostgres.class
 enums\DiaSemana.class
 entidades\AtendenteServico.class
@@ -39,4 +43,5 @@ entidades\Cliente.class
 daos\DaoClientePostgres.class
 entidades\Admin.class
 entidades\Servico.class
+controllers\AtendentesClienteController.class
 interfaces\DaoAtendenteInterface.class

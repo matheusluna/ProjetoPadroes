@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>${usuario.nome}</h1>
+        <a href="Frontal?caminho=AtendentesCliente">Solicitar atendimento</a>
     </body>
 </html>
