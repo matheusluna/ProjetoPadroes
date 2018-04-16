@@ -6,6 +6,7 @@
 package interfaces;
 
 import entidades.Atendente;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,5 @@ public interface DaoAtendenteInterface {
     public Atendente read(String email);
     public boolean update(Atendente atendente);
     public boolean delete(Atendente atendente);
-    
+    public List<Atendente> list();
 }
