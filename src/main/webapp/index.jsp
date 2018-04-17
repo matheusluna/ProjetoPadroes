@@ -20,12 +20,13 @@
         <title>BarberApp</title>
     </head>
     <body>
-
-            ${mensagem}
-
-        
-
+        ${mensagem}
         <div class="container">
+          <div class="row center-align">
+            <br><br>
+            <img src="img/icone.png" width="100px" alt="">
+            <h3 class="grey-text text-darken-2">BarberApp</h3>
+          </div>
           <div class="container">
             <div class="container">
               <div class="container">

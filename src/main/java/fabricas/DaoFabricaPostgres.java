@@ -6,6 +6,7 @@
 package fabricas;
 
 import daos.DaoClientePostgres;
+import interfaces.DaoAdminInterface;
 import interfaces.DaoClienteInterface;
 import interfaces.DaoFabrica;
 
@@ -18,6 +19,11 @@ public class DaoFabricaPostgres implements DaoFabrica{
     @Override
     public DaoClienteInterface criarDaoCliente() {
         return  new DaoClientePostgres();
+    }
+
+    @Override
+    public DaoAdminInterface criarDaoAdmin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

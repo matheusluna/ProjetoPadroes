@@ -25,12 +25,12 @@
           <div class="row center-align">
             <br><br>
             <img src="img/icone.png" width="100px" alt="">
-            <h3 class="grey-text text-darken-2">BarberApp</h3>
+            <h3 class="grey-text text-darken-2">BarberAppAdmin</h3>
           </div>
           <div class="container">
             <div class="container">
               <div class="container">
-                <form action="Frontal" method="post">
+                <form action="Admin" method="post">
                   <div class="row">
                     <div class="input-field col s12">
                       <input type="email" id="email" name="email" value="">
@@ -41,13 +41,11 @@
                     <div class="input-field col s12">
                       <input type="password" id="senha" name="senha" value="">
                       <label for="senha">Senha</label>
-                      <span>Não possui conta? <a href="cadastroCliente.jsp">Clique aqui</a></span><br>
-
                     </div>
                   </div>
                   <div class="row">
                     <div class="center-align">
-                      <input type="hidden" name="caminho" value="LoginCliente">
+                      <input type="hidden" name="caminho" value="LoginAdmin">
                       <input class="btn" type="submit" name="" value="Login">
                     </div>
                   </div>

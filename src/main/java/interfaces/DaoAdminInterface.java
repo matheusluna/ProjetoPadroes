@@ -5,11 +5,12 @@
  */
 package interfaces;
 
+import entidades.Admin;
+
 /**
  *
  * @author mathe
  */
-public interface DaoFabrica {
-    public DaoClienteInterface criarDaoCliente();
-    public DaoAdminInterface criarDaoAdmin();
+public interface DaoAdminInterface {
+    public Admin read(String email);
 }

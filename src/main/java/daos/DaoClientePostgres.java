@@ -36,6 +36,7 @@ public class DaoClientePostgres implements DaoClienteInterface{
                 boolean resultado = !stmt.execute();
                 stmt.close();
                 connection.close();
+                return resultado;
             } catch (ClassNotFoundException | SQLException ex) {
                 return false;
             }
