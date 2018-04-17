@@ -12,7 +12,6 @@ import java.util.Objects;
  * @author mathe
  */
 public class Cliente {
-    
     private String nome;
     private String sobrenome;
     private String email;
@@ -59,22 +58,14 @@ public class Cliente {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    public boolean validaSenha(String senha){
-        if(senha.equals(this.senha)){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.nome);
-        hash = 79 * hash + Objects.hashCode(this.sobrenome);
-        hash = 79 * hash + Objects.hashCode(this.email);
-        hash = 79 * hash + Objects.hashCode(this.senha);
+        int hash = 5;
+        hash = 11 * hash + Objects.hashCode(this.nome);
+        hash = 11 * hash + Objects.hashCode(this.sobrenome);
+        hash = 11 * hash + Objects.hashCode(this.email);
+        hash = 11 * hash + Objects.hashCode(this.senha);
         return hash;
     }
 

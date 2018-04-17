@@ -33,6 +33,7 @@ public class Frontal extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.lang.InstantiationException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, InstantiationException {
@@ -43,11 +44,7 @@ public class Frontal extends HttpServlet {
         try {
             Comando com = (Comando) Class.forName("controllers."+caminho+"Controller").newInstance();
             com.execute(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Frontal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Frontal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | IllegalAccessException | SQLException ex) {
             Logger.getLogger(Frontal.class.getName()).log(Level.SEVERE, null, ex);
         }
         

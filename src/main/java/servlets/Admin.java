@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author mathe
  */
 @WebServlet(name = "Admin", urlPatterns = {"/Admin"})
-@MultipartConfig
 public class Admin extends HttpServlet {
 
     /**
@@ -40,15 +38,11 @@ public class Admin extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("UTF-8");
         String caminho = request.getParameter("caminho");
-        System.out.println(caminho);
+        
         try {
             Comando com = (Comando) Class.forName("controllers."+caminho+"Controller").newInstance();
             com.execute(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Frontal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Frontal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | IllegalAccessException | SQLException ex) {
             Logger.getLogger(Frontal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -66,14 +60,14 @@ public class Admin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String caminho = request.getParameter("caminho");
-        if(caminho != null){
+        if(caminho == null){
+            request.getRequestDispatcher("loginAdmin.jsp").forward(request, response);
+        }else{
             try {
                 processRequest(request, response);
             } catch (InstantiationException ex) {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
-            request.getRequestDispatcher("loginAdmin.jsp").forward(request, response);
         }
         
     }

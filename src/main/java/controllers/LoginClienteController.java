@@ -5,11 +5,11 @@
  */
 package controllers;
 
-import daos.DaoClientePostgres;
 import entidades.Cliente;
-import fabricas.DaoFabricaBDPostgres;
+import fabricas.DaoFabricaPostgres;
 import interfaces.Comando;
 import interfaces.DaoClienteInterface;
+import interfaces.DaoFabrica;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -25,18 +25,30 @@ public class LoginClienteController implements Comando{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, IOException, ServletException {
+        //Criando fábrica de bancos do postgresql
+        DaoFabrica daoFabrica = new DaoFabricaPostgres();
+        DaoClienteInterface daoCliente = daoFabrica.criarDaoCliente();
+        //Recebendo dados da página index.jsp
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        DaoFabricaBDPostgres daoFabricaBDPostgres = new DaoFabricaBDPostgres();
-        DaoClienteInterface daoCliente = new DaoClientePostgres();
+        //Trazendo dados do cliente do banco
         Cliente cliente = daoCliente.read(email);
+        //Verificando se existe um cliente cadastrado com o email passado
         if(cliente != null){
-            if(cliente.validaSenha(senha)){
+            //Verificando se a senha passada condiz com a do usuário cadastrado
+            if(cliente.getSenha().equals(senha)){
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", cliente);
-                request.getRequestDispatcher("principal.jsp").forward(request, response);
+                request.getRequestDispatcher("principalCliente.jsp").forward(request, response);
+            }else{
+                request.setAttribute("mensagem", "<div class='row red center-align'><span class='white-text'>Senha incorreta!</span></div>");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
+        }else{
+            request.setAttribute("mensagem", "<div class='row red center-align'><span class='white-text'>E-mail não cadastrado!</span></div>");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+        
     }
     
 }

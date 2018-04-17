@@ -12,10 +12,6 @@ import entidades.Cliente;
  * @author mathe
  */
 public interface DaoClienteInterface {
-    
     public boolean create(Cliente cliente);
     public Cliente read(String email);
-    public boolean update(Cliente cliente);
-    public boolean delete(Cliente cliente);
-    
 }
