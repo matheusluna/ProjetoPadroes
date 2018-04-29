@@ -15,10 +15,10 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
     private String drive = "org.postgresql.Driver";
-    private String url = "jdbc:postgresql://localhost:5432/projetopadroes";
+    private String url = "jdbc:postgresql://host-banco:5432/projetopadroes";
     private String user = "postgres";
     private String senha = "123456";
-    
+
     public Connection getConnection() throws ClassNotFoundException, SQLException{
         Class.forName(drive);
         return DriverManager.getConnection(url, user, senha);
